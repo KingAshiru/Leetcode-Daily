@@ -1,0 +1,14 @@
+class Solution:
+    def maximum69Number (self, num: int) -> int:
+        #cast the num integers into a list of strings
+        num_l = list(str(num))
+        
+        for i, number in enumerate(num_l):
+            #simply iterate through the list, first time you encounter a "6" replace with "9" and break
+            if number == "6":
+                num_l[i] = "9"
+                break
+                
+                #cast back into an integer after joining the list to a string
+        return int("".join(num_l))
+            
