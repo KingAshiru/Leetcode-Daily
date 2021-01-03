@@ -1,26 +1,32 @@
 class Solution:
+    #function for deriving the hcf/gcd of two numbers, this would be needed later in the program
     def gcd (self,a,b):
         if (b == 0):
             return a
         else:
              return gcd (b, a % b)
     def hasGroupsSizeX(self, deck: List[int]) -> bool:
+        #if the deck size is less than 2, then no grouping can exist
         if len(deck) < 2:
             return False
         
+        #frequency counter for each card number in the deck
         deck_dict = {}
         for i in deck:
             if i in deck_dict:
                 deck_dict[i] += 1
             else:
                 deck_dict[i] = 1
-        
+                
+        #check the gcd of all the freq of numbers
         x = list(deck_dict.values())
         res = x[0]
         for c in x[1::]:
             res = self.gcd(res , c)
+            #avoid using 1 as a gcd
             if res < 2:
                 return False
+            #if a freq of any number is not divisible by the gcd, return False
         for c in deck_dict:
             if deck_dict[c] % res != 0:
                 return False
