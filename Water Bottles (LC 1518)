@@ -1,0 +1,12 @@
+class Solution:
+    def numWaterBottles(self, numBottles: int, numExchange: int) -> int:
+        #We need a quotient and remainder
+        quot, rem, output = numBottles, 0, numBottles
+        
+        #Keep performing operation till we have exhausted all filled water bottles
+        while quot + rem >= numExchange:
+            quot = quot + rem
+            rem = quot%numExchange
+            quot = quot//numExchange 
+            output += quot
+        return output
