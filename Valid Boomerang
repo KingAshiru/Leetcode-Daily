@@ -1,0 +1,21 @@
+'''A boomerang is a set of 3 points that are all distinct and not in a straight line.
+
+Given a list of three points in the plane, return whether these points are a boomerang.'''
+
+class Solution:
+    def isBoomerang(self, points: List[List[int]]) -> bool:
+        if points[0] == points[1] or points[1] == points[2] or points[0] == points[2]:
+            return False
+        
+        x0, y0 = points[0]
+        x1, y1 = points[1]
+        x2, y2 = points[2]
+        slope1 = slope2 = None
+       
+        if x0 != x1:
+            slope1 = (y1-y0)/(x1-x0)
+        if x0 != x2:
+            slope2 = (y2-y0)/(x2-x0)
+        
+        return not slope1 == slope2
+            
