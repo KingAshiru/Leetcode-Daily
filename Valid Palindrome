@@ -1,0 +1,11 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        #create a list to store only alphanumeric characters
+        letters = []
+        for i in s:
+            if i.isalnum():
+                letters.append(i.lower())
+                
+                #check the list against its reverse using slicing
+        return letters == letters[::-1]
+        
