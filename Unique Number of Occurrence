@@ -1,0 +1,18 @@
+class Solution:
+    def uniqueOccurrences(self, arr: List[int]) -> bool:
+        #check the freq of each number
+        counter = {}
+        for i in arr:
+            if i in counter:
+                counter[i] += 1
+            else:
+                counter[i] = 1
+        
+        #check to see if we have one freq for different numbers 
+        check = set()
+        for j in list(counter.values()):
+            if j in check:
+                return False
+            check.add(j)
+        
+        return True
