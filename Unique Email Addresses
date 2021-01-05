@@ -1,0 +1,11 @@
+class Solution:
+    def numUniqueEmails(self, emails: List[str]) -> int:
+        seen = set()
+        #try to work on the local name ignoring '.' and remove characters after '+', then concatenate and check its uniqueness
+        for mail in emails:
+            local, domain = mail.split("@")
+            local = local.split("+")[0].replace(".","")
+            address = local + "@" + domain
+            seen.add(address)
+            
+        return len(seen)
