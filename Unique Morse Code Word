@@ -1,0 +1,18 @@
+class Solution:
+    def uniqueMorseRepresentations(self, words: List[str]) -> int:
+        # a hash map for each letter
+        codes = {"a":".-","b":"-...","c":"-.-.","d":"-..","e":".","f":"..-.","g":"--.","h":"....","i":"..","j":".---","k":"-.-","l":".-..","m":"--","n":"-.","o":"---","p":".--.","q":"--.-","r":".-.","s":"...","t":"-","u":"..-","v":"...-","w":".--","x":"-..-","y":"-.--","z":"--.."}
+        
+        
+        word_codes = set()
+        word_code = ""
+        #add the morse code equivalent to each word to a set and return the length of the set
+        
+        for i in words:
+            for j in i:
+                word_code += codes[j]
+            word_codes.add(word_code)
+            word_code = ""
+
+        return len(word_codes)
+            
