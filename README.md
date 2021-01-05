@@ -1,2 +1,2 @@
 # Leetcode-Daily
-Gearing up my Data Structures and Algorithm
+Data Structures and Algorithm in Python
