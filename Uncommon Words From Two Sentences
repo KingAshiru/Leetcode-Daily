@@ -1,0 +1,27 @@
+class Solution:
+    def uncommonFromSentences(self, A: str, B: str) -> List[str]:
+        #make a list of each sentences
+        A_list = A.split(" ")
+        B_list = B.split(" ")
+        
+        unique = {}
+        output = []
+        
+        #count the freq of each word in the two sentences, and record only words with a count of 1
+        for word in A_list:
+            if word in unique:
+                unique[word] += 1
+            else:
+                unique[word] = 1
+                
+        for word in B_list:
+            if word in unique:
+                unique[word] += 1
+            else:
+                unique[word] = 1
+                
+        for i in unique:
+            if unique[i] == 1:
+                output.append(i)
+        
+        return output
