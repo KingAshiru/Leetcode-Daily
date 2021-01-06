@@ -1,0 +1,12 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        #for each number we encounter, we would map its index with the expected number required to sum our target, then return  that index together with the index of the expected number whenever we encounter the expected number
+        mapping = {}
+        
+        for i in range(len(nums)):
+            
+            if not nums[i] in mapping:
+                mapping[target - nums[i]] = i 
+            
+            else:
+                return mapping[nums[i]], i  
