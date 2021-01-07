@@ -1,0 +1,29 @@
+class Solution:
+    def thirdMax(self, nums: List[int]) -> int:
+        #check for edge cases
+        if len(set(nums)) < 3:
+            return max(nums)
+        
+        if len(set(nums)) == 3:
+            return min(nums)
+        
+        #Try to get second maximum by using minimum difference of the first
+        second_diff = third_diff = float('inf')
+        first = max(nums)
+        second = third = 0
+        for num in nums:
+            if first - num != 0:
+                if abs(first - num) <= second_diff:
+                    second_diff = abs(first - num)
+                    second = num
+        
+        #Try to get third maximum by using minimum difference of the second
+        for num in nums:
+            if second - num != 0:
+                if num != first and abs(second - num) <= third_diff:
+                    third_diff = abs(second - num)
+                    third = num
+        
+        return third
+        
+        
