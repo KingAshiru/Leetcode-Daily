@@ -1,0 +1,29 @@
+class Solution:
+    def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
+        #create a counter for each domain encoutered
+        domain_dict = {}
+        output = []
+        
+        #split each string to count and domains
+        for string in cpdomains:
+            string_split = string.split()
+            count = string_split[0]
+            domain = string_split[1]
+            domains = domain.split(".")
+            
+            #count each domain and subdomain
+            while domains:
+                temp_domain = ".".join(domains)
+                if temp_domain in domain_dict:
+                    domain_dict[temp_domain] += int(count)
+                else:
+                    domain_dict[temp_domain] = int(count)
+                
+                domains.pop(0)
+                
+                #return the count of each domain and subdomain
+        for key, val in domain_dict.items():
+            domain_string = f'{str(val)} {key}'
+            output.append(domain_string)
+        
+        return output
