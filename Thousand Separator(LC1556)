@@ -1,0 +1,21 @@
+class Solution:
+    def thousandSeparator(self, n: int) -> str:
+        s = ''
+        n_str = str(n)
+        count = 0
+        #check for edge case
+        if len(n_str) <= 3:
+            return n_str
+        
+        #count number of digits from the back and add a '.' at every count of 3
+        for char in n_str[::-1]:
+            if count == 3:
+                s += '.'
+                count = 0
+            s += char
+            count += 1
+        
+        return s[::-1]
+            
+        
+        
