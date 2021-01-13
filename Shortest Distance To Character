@@ -1,0 +1,18 @@
+class Solution:
+    def shortestToChar(self, S: str, C: str) -> List[int]:
+        output = []
+        index = []
+        
+        #store all indexes of the character
+        for i in range(len(S)):
+            if S[i] == C:
+                index.append(i)
+        
+        #deduct the minimum difference of character's index with string's
+        for i, char in enumerate(S):
+            min_index = len(S)
+            for j in index:
+                min_index = min(min_index, abs(j-i))
+            output.append(min_index)
+        
+        return output
