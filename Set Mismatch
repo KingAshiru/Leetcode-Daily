@@ -1,0 +1,11 @@
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        #using sum of AP
+        n = len(nums)
+        
+        #calculate sum of numbers
+        total_sum = (n + 1)*n//2
+        error_sum = sum(nums)
+        cur_sum = sum(list(set(nums)))
+        
+        return [error_sum-cur_sum, total_sum-cur_sum]
