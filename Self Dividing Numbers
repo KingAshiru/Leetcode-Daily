@@ -1,0 +1,15 @@
+class Solution:
+    def selfDividingNumbers(self, left: int, right: int) -> List[int]:
+        output = []
+        def checkDivide(x):
+                
+            for num in (str(x)):
+                if num == '0' or x % int(num) > 0:
+                    return False
+            return True
+        
+        for i in range(left,right+1):
+            if checkDivide(i):
+                output.append(i)
+            
+        return output
