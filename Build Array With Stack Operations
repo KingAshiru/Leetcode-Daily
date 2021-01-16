@@ -1,0 +1,17 @@
+class Solution:
+    def buildArray(self, target: List[int], n: int) -> List[str]:
+        nums = set(target)
+        output = []
+        max_ = max(target)
+        
+        for i in range(n):
+            if i + 1 in nums:
+                output.append("Push")
+                
+            else:
+                output.extend(["Push","Pop"])
+            
+            if i+1 == max_:
+                return output
+        
+        return output
