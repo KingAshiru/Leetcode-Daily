@@ -1,0 +1,22 @@
+class Solution:
+    def destCity(self, paths: List[List[str]]) -> str:
+        #create a counter for each path, if a path is indexed 1 and hasn't been seen, return it
+        city = {}
+        
+        for i,path in enumerate(paths):
+            if path[0] in city:
+                city[path[0]] += 1
+            else:
+                city[path[0]] = 1
+            
+            if path[1] in city:
+                city[path[1]] += 1
+            else:
+                city[path[1]] = 0
+                
+        
+        for key,val in city.items():
+            if val == 0:
+                return key
+                
+            
