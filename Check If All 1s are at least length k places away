@@ -1,0 +1,19 @@
+class Solution:
+    def kLengthApart(self, nums: List[int], k: int) -> bool:
+        #check for simple case
+        if k == 0:
+            return True
+        
+        count = k
+        
+        #check through the array and return False if the k is more than number of 0s between 1s
+        for i,num in enumerate(nums):
+            if num == 1:
+                if k > count:
+                    return False
+                count = 0
+            else:
+                count += 1
+                
+        return True
+                
