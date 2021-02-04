@@ -1,0 +1,18 @@
+class Solution:
+    def findLucky(self, arr: List[int]) -> int:
+        counter = {}
+        lucky = -1
+        for num in arr:
+            if num in counter:
+                counter[num] += 1
+            else:
+                counter[num] = 1
+            
+        for key in counter:
+            if counter[key] == key:
+                if key > lucky:
+                    lucky = key
+        
+        if lucky != 0:
+            return lucky
+        
