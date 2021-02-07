@@ -1,0 +1,16 @@
+class Solution:
+    def totalMoney(self, n: int) -> int:
+        start, start1 = 1, 1
+        sum_ = 0
+        count = 0
+        
+        while n > 0:
+            sum_ += start1
+            start1 += 1
+            count += 1
+            if count % 7 == 0:
+                start += 1
+                start1 = start
+            n -= 1
+        
+        return sum_
