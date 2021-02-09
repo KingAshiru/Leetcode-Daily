@@ -1,0 +1,19 @@
+class Solution:
+    def sumOfUnique(self, nums: List[int]) -> int:
+        #use a counter to ensure you picking only a number with the count of 1
+        numSet = {}
+        sum_ = 0
+        for num in nums:
+            if num in numSet:
+                numSet[num] += 1
+            else:
+                numSet[num] = 1
+        
+        for num in nums:
+            if numSet[num] == 1:
+                sum_ += num
+        
+        return sum_
+            
+            
+            
