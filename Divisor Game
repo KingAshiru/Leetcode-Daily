@@ -1,3 +1,4 @@
 class Solution:
     def divisorGame(self, N: int) -> bool:
+        # Anyone that starts with even number will win if they play optimally, thus check for even number
         return N % 2 == 0
