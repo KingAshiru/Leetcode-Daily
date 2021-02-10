@@ -1,0 +1,20 @@
+class Solution:
+    def countBalls(self, lowLimit: int, highLimit: int) -> int:
+        boxes = {}
+        count_sum = 0
+        
+        for num in range(lowLimit,highLimit+1):
+            digit_sum = 0
+            for i in str(num):
+                digit_sum += int(i)
+            if digit_sum in boxes:
+                boxes[digit_sum] += 1
+            else:
+                boxes[digit_sum] = 1
+            
+        for val in boxes.values():
+            if val > count_sum:
+                count_sum = val
+        
+        return count_sum
+            
