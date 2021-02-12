@@ -1,0 +1,18 @@
+class Solution:
+    def maxLengthBetweenEqualCharacters(self, s: str) -> int:
+        #check for edge case
+        if len(set(s)) == len(s):
+            return -1
+        
+        track = {}
+        count = 0
+        counts = []
+        
+        #check if char is present in dictionary, if yes subtract it index and 1from the previous char index else add the current character index to the dictionary
+        for char in s:
+            if char in track:
+                counts.append(count - track[char] - 1) 
+            else:
+                track[char] = count
+            count += 1
+        return max(counts)
