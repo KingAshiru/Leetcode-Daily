@@ -1,0 +1,17 @@
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        dic = {x:0 for x in 'balloon'}
+        min_ = 10000
+        
+        for char in text:
+            if char in dic:
+                dic[char] += 1
+        
+        dic['o'] //= 2
+        dic['l'] //= 2
+        
+        for val in dic.values():
+            min_ = min(min_,val)
+        
+        return min_
+        
