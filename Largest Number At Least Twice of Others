@@ -1,0 +1,12 @@
+class Solution:
+    def dominantIndex(self, nums: List[int]) -> int:
+        max_number = max(nums)
+        second_max = 0
+        for num in nums:
+            if num >= second_max and num < max_number:
+                second_max = num
+        
+        if 2 * second_max <= max_number:
+            return nums.index(max_number)
+        
+        return -1
