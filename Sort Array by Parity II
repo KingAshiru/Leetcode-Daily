@@ -1,0 +1,18 @@
+class Solution:
+    def sortArrayByParityII(self, A: List[int]) -> List[int]:
+        N = len(A)
+        ans = [None] * N
+
+        t = 0
+        for i, x in enumerate(A):
+            if x % 2 == 0:
+                ans[t] = x
+                t += 2
+
+        t = 1
+        for i, x in enumerate(A):
+            if x % 2 == 1:
+                ans[t] = x
+                t += 2
+
+        return ans
