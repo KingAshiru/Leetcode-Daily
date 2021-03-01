@@ -1,0 +1,12 @@
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        nextNonKey = 0
+        i = 0
+        
+        while i < len(nums):
+            if nums[i] != val:
+                nums[nextNonKey] = nums[i]
+                nextNonKey += 1
+            i += 1
+        
+        return nextNonKey
