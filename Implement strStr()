@@ -1,0 +1,12 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        n, h = len(needle), len(haystack)
+        if n == 0:
+            return 0
+        
+        for windowStart in range(len(haystack)):
+            if haystack[windowStart: windowStart + n] == needle:
+                return windowStart
+        
+        return -1
+                
