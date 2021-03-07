@@ -1,0 +1,16 @@
+class Solution:
+    def findLengthOfLCIS(self, nums: List[int]) -> int:
+        if len(nums) == 0:
+            return 0
+        windowStart = 0
+        maxLength = 0
+        prev = nums[0]
+        
+        for windowEnd in range(len(nums)):
+            if nums[windowEnd] <= prev:
+                windowStart = windowEnd
+            
+            maxLength = max(maxLength, windowEnd - windowStart + 1)
+            prev = nums[windowEnd]
+        
+        return maxLength
