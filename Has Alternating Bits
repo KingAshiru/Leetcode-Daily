@@ -1,0 +1,12 @@
+class Solution:
+    def hasAlternatingBits(self, n: int) -> bool:
+        rem = 0
+        prev = 2
+        while n >= 1:
+            rem = n % 2
+            if prev == rem:
+                return False
+            n = n // 2
+            prev = rem
+        
+        return True
