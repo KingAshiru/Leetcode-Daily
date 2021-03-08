@@ -1,0 +1,33 @@
+class Solution:
+    def findWords(self, words: List[str]) -> List[str]:
+        row1 = {'q','w','e','r','t','y','u','i','o','p','Q','W','E','R','T','Y','U','I','O','P'}
+        row2 = {'a','A','s','S','d','D','f','F','g','G','h','H','j','J','k','K','l','L'}
+        row3 = {'z','Z','x','X','c','C','v','V','B','b','n','N','m','M'}
+        output = []
+        
+        
+        for word in words:
+            valid = True
+            if word[0] in row1:
+                for char in word:
+                    if char not in row1:
+                        valid = False
+                        break
+                    
+            elif word[0] in row2:
+                for char in word:
+                    if char not in row2:
+                        valid = False
+                        break
+                    
+            elif word[0] in row3:
+                for char in word:
+                    if char not in row3:
+                        valid = False
+                        break
+                    
+            if valid:
+                output.append(word)
+        
+        return output
+        
