@@ -1,0 +1,15 @@
+class Solution:
+    def diagonalSum(self, mat: List[List[int]]) -> int:
+        sum_ = 0
+        i = 0
+        j = len(mat) - 1
+        while i < len(mat):
+            sum_ += mat[i][i]
+            sum_ += mat[i][j]
+            i += 1
+            j -= 1
+        if len(mat) % 2 == 1:
+            k = len(mat)//2
+            sum_ -= mat[k][k]
+        return sum_
+                
