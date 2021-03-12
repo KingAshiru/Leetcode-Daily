@@ -1,0 +1,15 @@
+class Solution:
+    def twoSumLessThanK(self, nums: List[int], k: int) -> int:
+        nums.sort()
+        left = 0
+        right = len(nums) - 1
+        sum_ = -1
+        
+        while left < right:
+            if nums[left] + nums[right] < k:
+                sum_ = max(nums[left] + nums[right],sum_)
+                left += 1
+            else:
+                right -= 1
+        
+        return sum_
