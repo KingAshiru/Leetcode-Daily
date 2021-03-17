@@ -1,0 +1,41 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def findMode(self, root: TreeNode) -> List[int]:
+        order = []
+        modes = {}
+        self.inorder(root,order)
+        if len(order) == 1:
+            return order
+        for i in range(len(order)):
+            if order[i] not in modes:
+                modes[order[i]] = 1
+            if i != 0:
+                if order[i-1] == order[i]:
+                    modes[order[i]] += 1
+                
+        mode = -1
+        modeList = []
+        for key in modes:
+            if modes[key] > mode:
+                mode = modes[key]
+                
+        for key in modes:
+            if modes[key] == mode:
+                modeList.append(key)
+                
+        return modeList
+    
+    def inorder(self,root,arr):
+        if root:
+            self.inorder(root.left,arr)
+            arr.append(root.val)
+            self.inorder(root.right,arr)
+        return
+            
+            
+            
