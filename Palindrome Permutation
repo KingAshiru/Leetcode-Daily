@@ -1,0 +1,15 @@
+class Solution:
+    def canPermutePalindrome(self, s: str) -> bool:
+        check = {}
+        for char in s:
+            if char not in check:
+                check[char] = 0
+            check[char] += 1
+        
+        oddCount = 0
+        for val in check.values():
+            if val % 2 != 0 and oddCount == 0:
+                oddCount += 1
+            elif val % 2 != 0 and oddCount != 0:
+                return False
+        return True
